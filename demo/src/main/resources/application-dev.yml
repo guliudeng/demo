@@ -20,4 +20,12 @@ spring:
         max-active: 1000
         max-idle: 10
         min-idle: 5
-
+jasypt:
+  encryptor:
+    password: 123456
+#animals:
+#  animalsType:
+#    animalsProperties:
+#      name: 狗
+#      age: 1
+#      sex: male
