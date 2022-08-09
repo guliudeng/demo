@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.killer.demo.bo.DdlAppInfos;
 import com.killer.demo.bo.DdlAppInfosReq;
 import com.killer.demo.bo.DdlAppInfosRsp;
+import com.killer.demo.config.AnimalsInfoConfig;
 import com.killer.demo.service.RedisService;
 import com.killer.demo.utils.HttpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class commonController {
     @Autowired
     private RedisService redisService;
-  /*  @Autowired
-    private AnimalsInfoConfig animalsInfoConfig;*/
+    @Autowired
+    private AnimalsInfoConfig animalsInfoConfig;
 
     @RequestMapping("hello")
     public String hello() {
@@ -38,13 +39,19 @@ public class commonController {
     /**
      * 测试读取配置属性
      */
-   /* @RequestMapping("testP")
+    @RequestMapping("testP")
     public void test() {
+        //获取动物
         String name = animalsInfoConfig.getAnimalsType().getAnimalsProperties().getName();
-        int age = animalsInfoConfig.getAnimalsType().getAnimalsProperties().getAge();
         String sex = animalsInfoConfig.getAnimalsType().getAnimalsProperties().getSex();
-        System.out.println(name+age+sex);
-    }*/
+        Integer age = animalsInfoConfig.getAnimalsType().getAnimalsProperties().getAge();
+        System.out.println(name+"--"+sex+"--"+age);
+        //获取人
+        String name1 = animalsInfoConfig.getAnimalsType().getPeopleProperties().getName();
+        String sex1 = animalsInfoConfig.getAnimalsType().getPeopleProperties().getSex();
+        Integer age1 = animalsInfoConfig.getAnimalsType().getPeopleProperties().getAge();
+        System.out.println(name1+"--"+sex1+"--"+age1);
+    }
     /**
      * redis string转json
      * @return

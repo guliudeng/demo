@@ -23,3 +23,13 @@ logging:
         max-active: 1000
         max-idle: 10
         min-idle: 5
+animals:
+  animalsType:
+    peopleProperties:
+      name: gg
+      age: 2
+      sex: man
+    animalsProperties:
+      name: dd
+      age: 1
+      sex: male
