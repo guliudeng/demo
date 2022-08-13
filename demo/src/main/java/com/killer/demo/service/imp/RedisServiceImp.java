@@ -3,11 +3,13 @@ package com.killer.demo.service.imp;
 import com.killer.demo.redisModel.RedisHelp;
 import com.killer.demo.redisModel.RedisLockEntity;
 import com.killer.demo.service.RedisService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 @Service
+@Slf4j
 public class RedisServiceImp implements RedisService {
     @Resource
     private RedisHelp redisHelp;

@@ -130,6 +130,7 @@ class DemoApplicationTests {
         String collect = entries.stream().map(e -> " ` " + e.getKey() + " ` ")
                 .collect(Collectors.joining(","));
         System.out.println(collect);
+
     }
 
     /**
