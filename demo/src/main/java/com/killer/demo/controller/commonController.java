@@ -2,15 +2,14 @@ package com.killer.demo.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.killer.demo.bo.DdlAppInfos;
-import com.killer.demo.bo.DdlAppInfosReq;
-import com.killer.demo.bo.DdlAppInfosRsp;
+import com.killer.demo.bo.*;
 import com.killer.demo.config.AnimalsInfoConfig;
 import com.killer.demo.service.RedisService;
 import com.killer.demo.utils.HttpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -82,6 +81,19 @@ public class commonController {
         String post = ddlAppInfosRsp.toString();
         //String post = HttpUtils.sendPostRequest(str);
         return post;
+    }
+
+    /**
+     * 验证入参对象有多个参数，实际请求的入参少于对象的参数是否可以正常接收参数是否可以正常转换，
+     * 预期：springmvc可以正常接收参数映射对象bean，有就赋值，没有传对应的参数的值就为null
+     * @param appInfosReq
+     * @return
+     */
+    @RequestMapping("parameterChangeTest")
+    public String parameterChange(@RequestBody AppInfosReq appInfosReq) {
+
+        System.out.println(appInfosReq.getAppInfo().getMenuUrl());
+        return null;
     }
 
 }
