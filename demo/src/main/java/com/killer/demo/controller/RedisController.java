@@ -43,5 +43,6 @@ public class RedisController {
           result = "获取分布式锁失败"+Thread.currentThread().getName();
         }
         return result;
+
     }
 }
