@@ -62,6 +62,17 @@ public class DateTimeUtils {
         return dateEnd.getTime();
     }
 
+    /**
+     * 获取当前时间前十分钟
+     * @return
+     */
+    public static Date getTen(){
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(new Date());
+        instance.add(Calendar.MINUTE,-10);
+       return instance.getTime();
+    }
+
     public static Date getAfterMinuteForDate(Date date, Integer num) {
         if (null == date) {
             date = new Date();
@@ -70,5 +81,41 @@ public class DateTimeUtils {
         calendar.setTime(date);
         calendar.add(Calendar.MINUTE, +num);
        return calendar.getTime();
+    }
+
+    /**
+     * 获取前几天的开始时间
+     * @param i
+     * @return
+     */
+    public static Date getBeforeStartTime(Date date,int i){
+        if (date == null) {
+            date = new Date();
+        }
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(date);
+        instance.add(Calendar.DATE,-i);
+        instance.set(Calendar.HOUR_OF_DAY, 0);
+        instance.set(Calendar.MINUTE, 0);
+        instance.set(Calendar.SECOND, 0);
+        return instance.getTime();
+    }
+
+    /**
+     * 获取前几天的结束时间
+     * @param i
+     * @return
+     */
+    public static Date getBeforeEndTime(Date date,int i){
+        if (date == null) {
+            date = new Date();
+        }
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(date);
+        instance.add(Calendar.DATE,-i);
+        instance.set(Calendar.HOUR_OF_DAY, 23);
+        instance.set(Calendar.MINUTE, 59);
+        instance.set(Calendar.SECOND, 59);
+        return instance.getTime();
     }
 }

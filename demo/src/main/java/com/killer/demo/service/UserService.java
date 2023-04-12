@@ -4,4 +4,5 @@ import com.killer.demo.po.BsUserPO;
 
 public interface UserService {
     BsUserPO qryUser();
+    int delectUser(int id);
 }

@@ -23,6 +23,18 @@ public class UserServiceImp implements UserService {
 
     @Override
     public BsUserPO qryUser() {
+        System.out.println("查询用户");
         return  bsUserPOMapper.selectByPrimaryKey(userId);
+    }
+
+    @Override
+    public int delectUser(int id) {
+
+        if (id>0) {
+            System.out.println("删除用户成功，用户id="+id);
+            return 1;
+        }
+        System.out.println("删除用户失败");
+        return 0;
     }
 }

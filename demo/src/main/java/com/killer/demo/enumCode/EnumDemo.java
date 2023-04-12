@@ -1,5 +1,10 @@
 package com.killer.demo.enumCode;
 
+/**
+ * 写一个枚举类
+ * 定义枚举对象的属性，提供有参构造器，提供get和set方法
+ * 自定义根据下标获取属性名，根据属性名称获取数字
+ */
 public enum EnumDemo {
     MONDAY("星期一",1),
     TUESDAY("星期二",2),

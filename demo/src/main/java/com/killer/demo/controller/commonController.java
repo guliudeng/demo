@@ -7,10 +7,7 @@ import com.killer.demo.config.AnimalsInfoConfig;
 import com.killer.demo.service.RedisService;
 import com.killer.demo.utils.HttpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("comm")
@@ -94,6 +91,18 @@ public class commonController {
 
         System.out.println(appInfosReq.getAppInfo().getMenuUrl());
         return null;
+    }
+
+    /**
+     * 返回输入的姓名和年龄
+     * @param name
+     * @param age
+     * @return
+     */
+    @RequestMapping("cry")
+    public  String cry(@RequestParam("name") String name, @RequestParam("age") String age){
+        System.out.println(name +age);
+        return name+age;
     }
 
 }
